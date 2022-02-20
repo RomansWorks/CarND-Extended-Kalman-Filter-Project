@@ -3,9 +3,11 @@
 
 # build files
 build/
+cmake-build-*/
 
 # editor config
 .vscode/
+.idea/
 
 # Xcode
 *.pbxuser
@@ -22,3 +24,6 @@ xcuserdata/
 *.xcscmblueprint
 ide_profiles/xcode/Debug/
 ide_profiles/xcode/ExtendedKF.build/
+
+# venv
+venv/

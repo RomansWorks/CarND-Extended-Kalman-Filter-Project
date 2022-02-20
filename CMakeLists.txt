@@ -2,6 +2,10 @@ project(ExtendedKF)
 
 cmake_minimum_required (VERSION 3.5)
 
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+# find_package (libuv 1.4 REQUIRED NO_MODULE)
+
+
 add_definitions(-std=c++11)
 
 set(CXX_FLAGS "-Wall")
@@ -16,11 +20,11 @@ include_directories(/usr/local/include)
 include_directories(/usr/local/opt/openssl/include)
 link_directories(/usr/local/lib)
 link_directories(/usr/local/opt/openssl/lib)
-link_directories(/usr/local/Cellar/libuv/1*/lib)
+# link_directories(/usr/local/Cellar/libuv/1*/lib)
 
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
 
 
 add_executable(ExtendedKF ${sources})
 
-target_link_libraries(ExtendedKF z ssl uv uWS)
+target_link_libraries(ExtendedKF z ssl uv uWS Eigen3::Eigen)

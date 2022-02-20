@@ -38,13 +38,8 @@ class KalmanFilter {
    * Updates the state by using standard Kalman Filter equations
    * @param z The measurement at k+1
    */
-  void Update(const Eigen::VectorXd &z);
-
-  /**
-   * Updates the state by using Extended Kalman Filter equations
-   * @param z The measurement at k+1
-   */
-  void UpdateEKF(const Eigen::VectorXd &z);
+  void UpdateLinear(const Eigen::VectorXd &z);
+  void UpdateNonlinear(const Eigen::VectorXd &z, Eigen::VectorXd (*h)(Eigen::VectorXd));
 
   // state vector
   Eigen::VectorXd x_;
@@ -63,6 +58,10 @@ class KalmanFilter {
 
   // measurement covariance matrix
   Eigen::MatrixXd R_;
+
+  // Identity matrix of x*x size (x - size of state vector) 
+  Eigen::MatrixXd I_;
+
 };
 
 #endif // KALMAN_FILTER_H_

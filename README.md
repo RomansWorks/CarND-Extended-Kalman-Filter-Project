@@ -1,3 +1,45 @@
+# About this fork
+
+This is a fork of the Extended Kalman Filter project from the Udacity Self-Driving Car Engineer Nanodegree. 
+
+The solution I've added is my solution to the open tasks in the project. 
+
+For testing please see my fork of the Simulator project - which is adapted to Unity 2020.3. 
+
+
+## Troubleshooting
+
+If there's an issue with illegal instruction, use LLVM 13.0.1.
+
+Install a recent version of llvm and clang:
+`brew install clang`
+
+Press Cmd+Shift+P and type  - ">CMake - Edit User-Local CMake Kits". 
+
+Add the following entry: 
+
+```
+  {
+    "name": "brew-installed cmake",
+    "compilers": {
+      "C": "/usr/local/opt/llvm/bin/clang",
+      "CXX": "/usr/local/opt/llvm/bin/clang++"
+    },
+    "environmentVariables": {
+      "CXXFLAGS": "-I/usr/local/opt/llvm/include",
+      "LDFLAGS": "-L/usr/local/opt/llvm/lib"
+      }
+  }
+```
+Save the file
+Cmd+Shift+P ">CMake - Select a Kit" and select the new entry.
+
+If the building fails, you might need to reinstall command line tools (see `https://discourse.cmake.org/t/cmake-not-working-after-update-do-big-sur/2546/17`)
+
+
+
+# ------------ ORIGINAL README BELOW ------------
+
 # Extended Kalman Filter Project Starter Code
 Self-Driving Car Engineer Nanodegree Program
 

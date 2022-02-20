@@ -9,6 +9,10 @@
 #include "measurement_package.h"
 #include "tools.h"
 
+#include <stdexcept>
+#undef eigen_assert
+#define eigen_assert(x) \
+  if (!(x)) { throw (std::runtime_error("Put your message here")); }
 class FusionEKF {
  public:
   /**
@@ -44,6 +48,13 @@ class FusionEKF {
   Eigen::MatrixXd R_radar_;
   Eigen::MatrixXd H_laser_;
   Eigen::MatrixXd Hj_;
+  Eigen::MatrixXd Q_nu;
+
+  // Noise
+  float noise_ax = 9; // TODO: Move to const
+  float noise_ay = 9; // TODO: Move to const
 };
+
+Eigen::VectorXd radar_h(Eigen::VectorXd x);
 
 #endif // FusionEKF_H_

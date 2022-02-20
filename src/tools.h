@@ -4,6 +4,11 @@
 #include <vector>
 #include "Eigen/Dense"
 
+#include <stdexcept>
+#undef eigen_assert
+#define eigen_assert(x) \
+  if (!(x)) { throw (std::runtime_error("Put your message here")); }
+
 class Tools {
  public:
   /**
