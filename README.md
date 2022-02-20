@@ -2,19 +2,33 @@
 
 This is a fork of the Extended Kalman Filter project from the Udacity Self-Driving Car Engineer Nanodegree. 
 
-The solution I've added is my solution to the open tasks in the project. 
+The solution I've added is my solution to the open tasks in the project.  
 
 For testing please see my fork of the Simulator project - which is adapted to Unity 2020.3. 
 
+# TODO
+
+The project could use some refactoring, especially around injecting state to functions instead of setting it on objects.
+The latter being harder to test and more error prone. 
 
 ## Troubleshooting
+
+## Missing Eigen or eigen
+
+Cmake expects to find libuv, openssl, uWebSocketIO and Eigen installed on the system. 
+
+If you're running on MacOS, `brew install eigtn libuv openssl`
+
+For uWebSocketIO use one of the `install-*.sh` scripts in the repo. 
+
+## Illegal instruction
 
 If there's an issue with illegal instruction, use LLVM 13.0.1.
 
 Install a recent version of llvm and clang:
 `brew install clang`
 
-Press Cmd+Shift+P and type  - ">CMake - Edit User-Local CMake Kits". 
+Press `Cmd+Shift+P` and type `>CMake - Edit User-Local CMake Kits`. 
 
 Add the following entry: 
 
@@ -31,8 +45,7 @@ Add the following entry:
       }
   }
 ```
-Save the file
-Cmd+Shift+P ">CMake - Select a Kit" and select the new entry.
+Save the file, then press `Cmd+Shift+P`, enter ">CMake - Select a Kit" and select the new entry.
 
 If the building fails, you might need to reinstall command line tools (see `https://discourse.cmake.org/t/cmake-not-working-after-update-do-big-sur/2546/17`)
 
